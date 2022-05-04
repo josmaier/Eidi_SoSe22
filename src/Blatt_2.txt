@@ -1,0 +1,16 @@
+Aufgabe 2:
+
+    a) String --> Einfaches Speichern einer gesamten Zeichenkette mit Sonderzeichen
+    b) Int --> Nur ganze Zahlen benötigt für die Darstellung --> Double auch möglich wenn Nachkommastellen für software benötigt werden
+    c) Double --> Nachkommastellen werden benötigt um Noten darzustellen
+    d) Char --> Einfaches speicher eines einzelnen Zeichens
+
+Aufgabe 3:
+
+    boolean b = true;
+    b = !(true || false) || b; --> b = true
+    b = !(true && false); --> b = true
+    b = (!(true && true) || (false || false)); --> (!(true) || false)) --> (false || false) --> b = false
+    b = !b; --> b = false
+
+    

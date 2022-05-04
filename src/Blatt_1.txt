@@ -1,0 +1,84 @@
+Aufgabe 1
+
+    a)
+        Zeit t = 60min = 3600s
+        Anzahl Operationen o = 100 * n^2
+        Operationen pro Sekunde o/s = 40.000
+
+        Welche Problemgröße n dürfen die Probleme maximal haben.
+
+        Gesamtanzahl Operationen pro Stunde = 40.000 * 3600 = 144.000.000 Operationen können pro Tag ausgeführt werden
+
+        --> Am Tag können maximal ein Problem der größe n = sqrt(1.440.000) berechnen, damit entspricht die maximal Problemgröße 1200.
+
+        (Wenn mit Probleme minimal 2 berechnungen gemeint ist halbiert sich die Problemgröße zu 600)
+
+
+    b)
+        3200 / 800 = 4
+        --> am Tag kann die dreifache Menge an Operationen ausgeführt werden, entspricht 432.000.000
+        --> die maximale Problemgröße Steigt damit auf n = sqrt(5.760.00) = 2400
+
+        (Wenn mit Probleme minimal 2 berechnungen gemeint ist halbiert sich die Problemgröße zu 1200)
+
+    c)
+        Die Maximale Anzahl an Operationen steigt um das neunfache auf .000.000 * 9 = 3.888.000.000
+
+        --> die maximale Problemgröße steigt hiermit auf n = sqrt(38.880.000) = 6235,38... ~ 6235
+
+        (Wenn mit Probleme minimal 2 berechnungen gemeint ist halbiert sich die Problemgröße zu 3117,5 ~ 3117)
+
+
+
+Aufgabe 3
+
+    a)
+
+        Problemspezifikation: 
+
+        Tagespreise: positive Zahl
+        Maximaler prozentualer Anstieg: Größte Prozentuale Preisdifferenz zwischen zwei Tagespreisen
+        Berechnet: Preise müssen gegeben sein
+        Liste: Indizierbare menge an Zahlen welche
+        Herausfinden: Liste durchsuchen und Bedingung prüfen.
+
+        Problemabstraktion:
+
+        Gegeben: Zwei Listen von positiven Zahlen p1 ... pn und pm1 ... pmn
+        Gesucht: Zwei Zahlen mit der größten Differenz 
+
+        Algorithmenentwurf:
+
+        Liste A = Liste vom Vortag
+        Liste B = Liste vom aktuellen Tag
+
+        1. Setze N gleich Anzahl an Werten in Liste A und M gleich Anzahl an Werter in Liste B -- 2E
+           Setze i = 1, y = 1, x = 1 -- 3E
+
+        2. 
+            Solange y <= M ist 
+                   Solange i <= N ist 
+                   Falls By / Ai > x, setze x als By/Ai 
+                   Erhöhe i um 1 
+                Erhöhe y um 1 
+                Setze i = 1 
+
+        3. Ausgabe entspricht (x-1)*100 was dem maximalen prozentualen Preisanstieg zwischen zwei in der Liste enthaltenen Preisen entspricht
+
+
+        Korrektheitsnachweis, Verifikation:
+
+        Der Algorithmus terminiert wenn alle Werte von Liste B durchlaufen wurden. 
+
+        Aufwandsanalyse:
+
+        Solange y <= M ist -- M * 2E
+                Solange i <= N ist -- 1E * N
+                Falls By / Ai > x, setze x als By/Ai -- Worst case, Jeder Wert in Liste B > jeder wert in Liste A, sowie jeder wert in Liste Bn+1 größer als Bn --> M * N E
+                Erhöhe i um 1 -- 1E
+            Erhöhe y um 1 -- 1E
+            Setze i = 1 -- 1E
+        Gebe (x-1)*100 aus -- 1E
+                
+        M * 2E + N * 1E + M * N * 1E + 1E
+
