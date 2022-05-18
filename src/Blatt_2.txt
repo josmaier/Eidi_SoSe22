@@ -2,7 +2,7 @@ Aufgabe 2:
 
     a) String --> Einfaches Speichern einer gesamten Zeichenkette mit Sonderzeichen
     b) Int --> Nur ganze Zahlen benötigt für die Darstellung --> Double auch möglich wenn Nachkommastellen für software benötigt werden
-    c) Double --> Nachkommastellen werden benötigt um Noten darzustellen
+    c) Float --> Nachkommastellen werden benötigt um Noten darzustellen, präzison von double wird für Noten nicht benötigt
     d) Char --> Einfaches speicher eines einzelnen Zeichens
 
 Aufgabe 3:
@@ -11,6 +11,72 @@ Aufgabe 3:
     b = !(true || false) || b; --> b = true
     b = !(true && false); --> b = true
     b = (!(true && true) || (false || false)); --> (!(true) || false)) --> (false || false) --> b = false
-    b = !b; --> b = false
+    b = !b; --> b = true
 
-    
+Aufgabe 1:
+
+    a)
+        L = Übergebene Liste
+        x = Hilfvariable zum Zwischenspeichern
+        i = Index 1 
+        j = Index 2 
+        N = Länge der Liste L
+        Li = Element von L an Index i
+        Lj = Element von L an Index j
+
+        Prüfen ob i und j in Liste
+        N mind 2
+        
+
+1E        Falls N >= 2
+1E            Falls i >= 1 und i < N
+1E                Falls j >= 2 und j <= N
+1E                    Setze x gleich Li
+1E                    Setze Li gleich Lj
+1E                    Setze Lj gleich x
+                Wenn nicht
+1E                    Gebe aus "Index j ist nicht im angegebenen Wertebereich"
+            Wenn nicht
+1E                Gebe aus "Index i ist nicht im angegebenen Wertebereich"
+        Wenn nicht
+1E            Gebe aus "Die Liste enthält weniger als zwei Werte"
+
+
+    b)
+
+        Liste L
+        i = Index 1
+        j = Index 2
+        N = Länge der Liste
+        Li = Element von L an Index i
+        Lj = Element von L an Index j
+
+        N mind 2
+        Prüfen ob Li > Lj
+
+        Falls N >= 2
+            Solange i >= 1 und i < N
+                Setze j = i + 1
+                    Solange j <= N
+                        Falls Li > Lj
+                            vertausche(L, i, j)
+                            Setze j = j + 1
+                        wenn nicht
+                            Setze j = j + 1
+                Setze i = i + 1
+                
+1E        Falls N >= 2
+2E + 1E * N - 1            Solange i >= 1 und i < N
+1E                Setze j = i + 1
+9E * N                    Solange j <= N
+1E                        Falls Li > Lj
+6E                            vertausche(L, i, j)
+1E                            Setze j = j + 1
+                        wenn nicht
+1E                            Setze j = j + 1
+1E                Setze i = i + 1
+
+1E + 4E * N-1 + 9E * N 
+            
+
+

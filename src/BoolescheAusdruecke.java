@@ -1,8 +1,8 @@
 public class BoolescheAusdruecke {
     public static void main(String[] args) {
-        double tempRoom = 30;
+        float tempRoom = 30f;
         int agePers = 15;
-        double tempThreshold = 22.5;
+        float tempThreshold = 22.5f;
 
         boolean tempBelowThreshold = tempRoom < tempThreshold;
 
