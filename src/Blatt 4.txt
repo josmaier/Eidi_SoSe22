@@ -1,0 +1,27 @@
+Blatt 4
+
+1a
+
+Zeile 18 gibt 4 und Zeile 19 1 aus.
+
+Variablenverlauf ele & idx
+    ele     idx     array
+13  1               
+14          1
+15  2       1
+16  2       1       [][][]
+17  2       1       [][][]
+Ruft setzeElementVielleicht auf
+-->
+3 --> Keine der Bedingungen sind true
+7   2       1       [][2][]
+8   4       1       [][2][]
+18  4       1       [][2][]
+19  4       1       [][2][]
+
+1b
+
+
+
+
+    
