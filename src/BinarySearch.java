@@ -34,24 +34,28 @@ public class BinarySearch {
 	 * @return the index of the key if found, -1 otherwise. 
 	 */
 	/*
-	 * 3b) Die Methode ist Endrekurisv 
+	 * 3b) Die Methode ist Endrekurisv, da der Rekursionsaufruf am
+	 * ende der Methode steht.
+	 *  
 	 * 3c) Der Worst case tritt auf, wenn das element nicht im Array enthalten ist
 	 * und der search key größer als das letzte Element/kleiner als das erste element ist.
-	 * 3d)
 	 * 
-	 */
+	 * 3d) O(log(n)) Da wir die Daten in jedem schritt halbieren,
+	 * benötigen für einen extra schritt jedes mal, wenn sich die 
+	 * Datenmenge verdoppelt
+	 */	
 	 static int search(int[] sequence, int key, int min, int max) {
 		
 		//Checking if the input is legal
-		if (min > max || min < 0 || max < 0 || sequence.length < 1) {
+		if (min > max || min < 0 || max < 0 || sequence.length < 1 
+		|| max > sequence.length-1) {
 			System.out.println("Error: Illegal Input");
 			return NO_KEY;
 		}
 		int middle = (min + max) / 2;
 		if(sequence[middle] == key){
 			return middle;
-		}else if(middle == sequence.length-1 && middle != sequence[middle]
-		 || middle == 0 && middle != sequence[middle]){
+		} else if(middle == sequence.length-1|| middle == 0){
 			//Used to exit the function if the given key is not contained
 			//in the array given
 			System.out.println("Error: Key not in Array");
@@ -63,6 +67,7 @@ public class BinarySearch {
 		} else {
 			return NO_KEY;
 		}
+		
 	}  // end search 
 	
 }  // end class BinarySearch

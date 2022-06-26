@@ -22,6 +22,10 @@ public class IterativeSort {
          * j < N da bei j <= N wir out of bounds gehen
          * wenn i bei 1 anfangen wuerde, erhalten wir den Fehler
          * das naturelich unser erstes Element nicht mit sortiert wird
+         * 
+         * Aufgabe 1b)
+         * Laufzeit = O(n^2)
+         * da wir eine doppelt verschachtelte Schleife benutzen
          */
         int i = 0;
         while (i < N){
@@ -52,7 +56,7 @@ public class IterativeSort {
     }
 
     public static void main(String[] args) {
-        //generate 6 random integer arrays of length 10
+        //Generate one random array of the length 10
         int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() * 100);
