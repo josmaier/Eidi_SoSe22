@@ -1,12 +1,12 @@
 /**
  * Programm zur binaeren Suche eine gegebenen Elements (ganze Zahl) in einer 
  * Folge von Elementen. Die Elemente sind in einem Array abgelegt.
- * Edit: Funktion wurde ungeschrieben und ist nun Rekursiv - JM MG
+ * Edit: search() wurde ungeschrieben und ist nun Rekursiv - JM MG
  * Es werden vorgestellt:
  * - Verwendung von Arrays (geordnet) fuer binaere Suche (mit sukzessiver 
  *   Halbierung der Datenmenge)
- * - iterative Positionsbestimmung fuer ein in dem Array vorkommendes Element
- * Autor: hn, Jan.2011, Anpassungen JK Dez. 2015, Anpassungen Joscha Maier Jun. 2022
+ * - rekursive Positionsbestimmung fuer ein in dem Array vorkommendes Element
+ * Autor: hn, Jan.2011, Anpassungen JK Dez. 2015, Anpassungen Joscha Maier Martin Graf Jun. 2022
  */
 public class BinarySearch {
 	
