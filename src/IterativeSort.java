@@ -27,10 +27,10 @@ public class IterativeSort {
          * Laufzeit = O(n^2)
          * da wir eine doppelt verschachtelte Schleife benutzen
          */
-        int i = 0;
+        int i = 1;
         while (i < N){
             int j = i + 1;
-            while(j < N){
+            while(j <= N){
                 if(array[i] > array[j]){//Wenn ein Element größer als das nächste ist, dann tauschen
                     swapElements(array, i, j);
                 }
@@ -41,8 +41,7 @@ public class IterativeSort {
         return array;
     }
 
-    //Wussten nicht ob man Arrays.toString importieren darf, deswegen
-    //eigene toString Methode geschrieben
+    //Gibt Array in schöner form aus
     public static String toString(int[] array) {
         String result = "[";
         for (int i = 0; i < array.length; i++) {
