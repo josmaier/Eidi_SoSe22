@@ -1,7 +1,7 @@
 /**
  * Programm zur binaeren Suche eine gegebenen Elements (ganze Zahl) in einer 
  * Folge von Elementen. Die Elemente sind in einem Array abgelegt.
- * Edit: Funktion wurde ungeschrieben und ist nun Rekursiv
+ * Edit: Funktion wurde ungeschrieben und ist nun Rekursiv - JM MG
  * Es werden vorgestellt:
  * - Verwendung von Arrays (geordnet) fuer binaere Suche (mit sukzessiver 
  *   Halbierung der Datenmenge)
@@ -20,7 +20,7 @@ public class BinarySearch {
 		
 		
 		int[] seq = new int[] { 2, 4, 5, 6, 7, 8, 9, 11};  // Elemente sind sortiert
-		int   k   = 15;  // konvertiere Konsole-Eingabe in int
+		int   k   = Integer.parseInt(args[0]);  // konvertiere Konsole-Eingabe in int
 
 		System.out.println("Binäre Suche (Position): " + search(seq, k, 0, seq.length-1));
 	}  // end main

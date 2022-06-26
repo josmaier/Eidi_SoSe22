@@ -6,7 +6,7 @@ public class IterativeSort {
             System.out.println("Error: Invalid input");
             return;
         }
-        //Vertauschen der Array Elemente an Position i und j
+        //Swap array elements at position i and j
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -19,10 +19,6 @@ public class IterativeSort {
             return null;
         }
         /*
-         * j < N da bei j <= N wir out of bounds gehen
-         * wenn i bei 1 anfangen wuerde, erhalten wir den Fehler
-         * das naturelich unser erstes Element nicht mit sortiert wird
-         * 
          * Aufgabe 1b)
          * Laufzeit = O(n^2)
          * da wir eine doppelt verschachtelte Schleife benutzen
@@ -31,7 +27,7 @@ public class IterativeSort {
         while (i < N){
             int j = i + 1;
             while(j <= N){
-                if(array[i] > array[j]){//Wenn ein Element größer als das nächste ist, dann tauschen
+                if(array[i] > array[j]){//If next element is bigger than current one, swap them
                     swapElements(array, i, j);
                 }
                 j++;
@@ -41,25 +37,13 @@ public class IterativeSort {
         return array;
     }
 
-    //Gibt Array in schöner form aus
-    public static String toString(int[] array) {
-        String result = "[";
-        for (int i = 0; i < array.length; i++) {
-            result += array[i];
-            if(i != array.length - 1){
-                result += ", ";
-            }
-        }
-        result += "]";
-        return result;
-    }
 
     public static void main(String[] args) {
-        //Generate one random array of the length 10
-        int[] array = new int[10];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 100);
+        int[] array = {4, 2, 24, 5123, 12, 2145, 12, 44, 124, 11, 0, 1};
+        System.out.println("Array 1: ");
+        iterativeSort(array);
+        for(int i = 0; i < array.length; i++){
+            System.out.print(array[i] + " ");
         }
-        System.out.println("Array 1: " + toString(iterativeSort(array)));
     }
 }
