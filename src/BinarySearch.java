@@ -22,7 +22,7 @@ public class BinarySearch {
 		int[] seq = new int[] { 2, 4, 5, 6, 7, 8, 9, 11};  // Elemente sind sortiert
 		int   k   = Integer.parseInt(args[0]);  // konvertiere Konsole-Eingabe in int
 
-		System.out.println("Binäre Suche (Position): " + search(seq, k, 0, seq.length-1));
+		System.out.println("Binaere Suche (Position): " + search(seq, k, 0, seq.length-1));
 	}  // end main
 
 	/**

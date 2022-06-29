@@ -1,0 +1,29 @@
+Blatt 4
+
+1a
+
+Zeile 18: Gibt den Wert der Variable ele heraus, welche zuvor in Zeile 17 durch die Methode „setzeElementVielleicht“ den neuen Wert 4 zugewiesen bekommt. 
+Zeile 19: Gibt den Wert der Variable idx heraus, welche zuvor in Zeile 14 mit dem Wert 1 initialisiert wurde.
+
+Variablenverlauf ele & idx
+    ele     idx     array
+13  1               
+14          1
+15  2       1
+16  2       1       [][][]
+17  2       1       [][][]
+Ruft setzeElementVielleicht auf
+-->
+3 --> Keine der Bedingungen sind true
+7   2       1       [][2][]
+8   4       1       [][2][]
+18  4       1       [][2][]
+19  4       1       [][2][]
+
+1b
+
+Zeile 20-26 geben aus "Array ungültig", da in Zeile 17 array = null
+gesetzt wird
+
+
+    
