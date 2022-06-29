@@ -39,6 +39,10 @@ public class ShakerSort {
     }
 
     public static String toString(int[] arr){
+        if(arr == null){
+            System.out.println("Illegal Input");
+            System.exit(-1);
+        }
         String s = "[ ";
         for(int i = 0; i < arr.length; i++){
             s += arr[i] + " ";
