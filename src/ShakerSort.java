@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class ShakerSort {
 
     /**
@@ -40,13 +38,19 @@ public class ShakerSort {
         }
     }
 
-
-        public static void main(String[] args) {
-            int[] array = {29, 13, 89, 41, 30, 71, 92, 39, 64, 37};
-            System.out.println("Unsorted Array: " + Arrays.toString(array));
-            int[] sortedArray = sort(array, 0, array.length-1);
-            System.out.println("Sorted Array: " + Arrays.toString(sortedArray));
+    public static String toString(int[] arr){
+        String s = "[ ";
+        for(int i = 0; i < arr.length; i++){
+            s += arr[i] + " ";
         }
-
-
+        s += "]";
+        return s;
     }
+
+    public static void main(String[] args) {
+        int[] array = {29, 13, 89, 41, 30, 71, 92, 39, 64, 37};
+        System.out.println("Unsorted Array: " + toString(array));
+        int[] sortedArray = sort(array, 0, array.length-1);
+        System.out.println("Sorted Array: " + toString(sortedArray));
+    }
+}
