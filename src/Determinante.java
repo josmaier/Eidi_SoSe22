@@ -3,6 +3,9 @@
  * Spalte
  * 
  * @author Friedhelm Schwenker
+ * Edit: Joscha Maier Martin Graf July 2022
+ * -Added calculateDeterminanteReducedMatrix(int [][]) 
+ * -Implemented det(int[][], int, int)
  * @version 1.0
  */
 
@@ -33,7 +36,7 @@ public class Determinante {
     private static int det(int[][] mat, int sum, int i) {
         // TODO
         if (mat.length <= 10 && i <= mat.length - 1) {
-            // sum i = 0 to n of (-1^i+1 * mi1 * det * m-i1) -1^i+1 * mi1 = a
+            // sum i = 0 to n of (-1^i+1 * mi1 * det * m-i1)
             sum += (Math.pow(-1, (i + 1)) * mat[i][0] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i)));
             return det(mat, sum, (i + 1));
         } else if (mat.length == 1) {
@@ -56,6 +59,11 @@ public class Determinante {
     }
 
     //works, no touchy
+    /**
+     * Used to calculate the deteminate of the reduced matrix
+     * @param mat       reduced matrix
+     * @return int      determinate
+     */
     private static int calculateDeterminanteReducedMatrix(int[][] mat) {
         if (mat[0][0] == 0 && mat[0][1] == 0 || mat[0][0] == 0 && mat[1][0] == 0
         || mat[0][1] == 0 && mat[1][1] == 0) {
