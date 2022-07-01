@@ -29,17 +29,25 @@ public class Determinante {
         }
     }
 
-    // recursive determinant calculation --> does not work
+    // recursive determinant calculation --> works kind of
     private static int det(int[][] mat, int sum, int i) {
         // TODO
-        if (mat.length <= 10 && i < mat.length - 1) {
+        if (mat.length <= 10 && i <= mat.length - 1) {
             // sum i = 0 to n of (-1^i+1 * mi1 * det * m-i1) -1^i+1 * mi1 = a
-            sum += (Math.pow(-1, (i + 1)) * mat[i][1] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i)));
+            sum += (Math.pow(-1, (i + 1)) * mat[i][0] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i)));
             return det(mat, sum, (i + 1));
         } else if (mat.length == 1) {
             return mat[0][0];
-        } else if (i == mat.length-1) {
-            return sum;
+        } else if (i == mat.length) {
+            /*
+             * While this method does return the right value of result,
+             * it sadly does not return the right sign. Negative values
+             * are being returned positive and positive values negative
+             * SOOO to compensate for this right now the output is 
+             * multiplied with -1 to change the sign therefore making it return
+             * the correct result
+             */
+            return (sum * -1);
         } else {
             System.out.println("Input error");
             return -1;
