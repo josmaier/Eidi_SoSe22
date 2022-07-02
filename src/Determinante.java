@@ -37,12 +37,13 @@ public class Determinante {
         // TODO
         if (mat.length <= 10 && i <= mat.length - 1) {
             // sum i = 0 to n of (-1^i+1 * mi1 * det * m-i1)
-            sum += (Math.pow(-1, i)) * mat[i][0] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i));
+            sum += (Math.pow(-1, i + 1)) * mat[i][0] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i));
             return det(mat, sum, (i + 1));
         } else if (mat.length == 1) {
             return mat[0][0];
         } else if (i == mat.length) {
-            return sum;
+            //flip sign since function returns correct absolute value
+            return (sum * -1);
         } else {
             System.out.println("Input error");
             return -1;

@@ -12,7 +12,7 @@ public class ShakerSort {
         if(lowerBoundary == upperBoundary + 1){//if the array is sorted return it
             return array;
         } else if(array == null || array.length < 2 || lowerBoundary < 0 
-        || upperBoundary < 0 || lowerBoundary > upperBoundary || upperBoundary > array.length-1){//check for non compliant inout
+        || upperBoundary < 0 || lowerBoundary > upperBoundary || upperBoundary > array.length-1){//check for non compliant input
             System.out.println("Illegal Input");
             return null;//return null if input is non compliant
         } else {
