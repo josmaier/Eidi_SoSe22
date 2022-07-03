@@ -6,13 +6,13 @@
  * Edit: Joscha Maier Martin Graf July 2022
  * -Added calculateDeterminanteReducedMatrix(int [][]) 
  * -Implemented det(int[][], int, int)
- * @version 1.0
+ * @version 1.1
  */
 
 public class Determinante {
 
     public static void main(String[] args) {
-        int n = 3; // Vorsicht n<=10
+        int n = 7; // Vorsicht n<=10
         int[][] mat = new int[n][n];
 
         init(mat);
@@ -32,9 +32,15 @@ public class Determinante {
         }
     }
 
-    // recursive determinant calculation --> works kind of
+    /**
+     * Recusive calculation for the determiant of a matrix, gets less 
+     * accurate with increasing matrix size 
+     * @param mat       input matrix
+     * @param sum       sum needed for calculation
+     * @param i         count variable needed for sum calculation
+     * @return          determinant of the input matrix
+     */
     private static int det(int[][] mat, int sum, int i) {
-        // TODO
         if (mat.length <= 10 && i <= mat.length - 1) {
             // sum i = 0 to n of (-1^i+1 * mi1 * det * m-i1)
             sum += (Math.pow(-1, i + 1)) * mat[i][0] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i));
@@ -53,13 +59,18 @@ public class Determinante {
 
     //works, no touchy
     /**
-     * Used to calculate the deteminate of the reduced matrix
+     * Used to calculate the deteminant of the reduced matrix,
+     * if the input matrix is larger than n=2 use the det function
+     * to calculate it's determinant
      * @param mat       reduced matrix
-     * @return int      determinate
+     * @return int      determinant
      */
     private static int calculateDeterminanteReducedMatrix(int[][] mat) {
+        if(mat.length > 2){
+            return det(mat, 0, 0);
+        }
         if (mat[0][0] == 0 && mat[0][1] == 0 || mat[0][0] == 0 && mat[1][0] == 0
-        || mat[0][1] == 0 && mat[1][1] == 0) {
+        || mat[0][1] == 0 && mat[1][1] == 0 || mat[0][0] == 0 && mat[1][1] == 0) {
             return 0;
         } else {
             return (mat[0][0] * mat[1][1]) - (mat[1][0] * mat[0][1]);

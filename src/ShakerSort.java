@@ -19,23 +19,31 @@ public class ShakerSort {
             //iterate through array from the left to the right 
             for(int i = lowerBoundary; i < upperBoundary; i++){
                 if(array[i] > array[i+1]){//swap elements
-                    int temp = array[i];
-                    array[i] = array[i+1];
-                    array[i+1] = temp;
+                    swapElements(array, i, i+1);
                 }
             }
             //iterate through array from the right to the left
             for(int i = upperBoundary; i > lowerBoundary; i--){
                 if(array[i] < array[i-1]){//swap elements
-                    int temp = array[i];
-                    array[i] = array[i-1];
-                    array[i-1] = temp;
+                    swapElements(array, i, i-1);
                 }
             }
             //recursive call to sort the array, but with the new boundaries
             //now not looking at the sorted part of the array anymore
             return sort(array, lowerBoundary+1, upperBoundary-1);
         }
+    }
+
+    public static void swapElements(int[] array, int i, int j) {
+        int N = array.length;
+        if (N < 2 || i < 0 || j < 0 || i > N || j > N) {
+            System.out.println("Error: Invalid input");
+            return;
+        }
+        //Swap array elements at position i and j
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
     public static String toString(int[] arr){
