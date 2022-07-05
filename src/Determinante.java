@@ -12,7 +12,7 @@
 public class Determinante {
 
     public static void main(String[] args) {
-        int n = 7; // Vorsicht n<=10
+        int n = 3; // Vorsicht n<=10
         int[][] mat = new int[n][n];
 
         init(mat);
@@ -43,13 +43,12 @@ public class Determinante {
     private static int det(int[][] mat, int sum, int i) {
         if (mat.length <= 10 && i <= mat.length - 1) {
             // sum i = 0 to n of (-1^i+1 * mi1 * det * m-i1)
-            sum += (Math.pow(-1, i + 1)) * mat[i][0] * calculateDeterminanteReducedMatrix(reduceMatrix(mat, i));
+            sum += (Math.pow(-1, i + 1)) * mat[i][0] * calculateDeterminantReducedMatrix(reduceMatrix(mat, i));
             return det(mat, sum, (i + 1));
         } else if (mat.length == 1) {
             return mat[0][0];
         } else if (i == mat.length) {
-            //flip sign since function returns correct absolute value
-            return (sum * -1);
+            return sum;
         } else {
             System.out.println("Input error");
             return -1;
@@ -65,7 +64,7 @@ public class Determinante {
      * @param mat       reduced matrix
      * @return int      determinant
      */
-    private static int calculateDeterminanteReducedMatrix(int[][] mat) {
+    private static int calculateDeterminantReducedMatrix(int[][] mat) {
         if(mat.length > 2){
             return det(mat, 0, 0);
         }
