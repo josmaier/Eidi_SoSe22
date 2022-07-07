@@ -8,17 +8,20 @@ class Element {
     private int value;
     private Element next;
     private Element previous;
+    private boolean hasValue;
 
     public Element() {
         this.next = null;
         this.previous = null;
-        this.value = 0;
+        this.hasValue = false;
     }
 
     public Element(int value){
         this.value = value;
         this.next = null;
         this.previous = null;
+        this.hasValue = true;
+        
     }
 
     public void setNextElement(Element nextElement) {
@@ -39,10 +42,19 @@ class Element {
 
     public void setValue(int value) {
         this.value = value;
+        this.hasValue = true;
     }
 
     public int getValue() {
         return this.value;
+    }
+
+    public boolean getHasValue(){
+        return this.hasValue;
+    }
+
+    public void setHasValue(boolean b){
+        this.hasValue = b;
     }
 
 }
