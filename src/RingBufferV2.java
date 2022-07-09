@@ -5,12 +5,15 @@ public class RingBufferV2 {
 
     public RingBufferV2(int capacity) {
 
+        //Array to initialise elements of buffer
         ElementV2[] elementV2s = new ElementV2[capacity];
 
+        //filling array with elements
         for(int i = 0; i < elementV2s.length; i++){
             elementV2s[i] = new ElementV2();
         }
 
+        //connecting elements
         for (int j = 0; j < elementV2s.length; j++) {
             if (j == 0) {
                 elementV2s[j].setPreviousElementV2(elementV2s[elementV2s.length - 1]);
@@ -25,7 +28,7 @@ public class RingBufferV2 {
         }
         
 
-        
+        //setting head and tail
         this.head = elementV2s[0];
         this.tail = elementV2s[0];
         this.setIsEmptyV2(true);
@@ -35,17 +38,19 @@ public class RingBufferV2 {
     //TODO has a issue which results in element positions in the buffer being changed
     //Idk why trying to fix
     public void addValueV2(int value) {
+        //if buffer is empty
         if (this.head == this.tail) {
             addValueFirst(value);
             return;
         }
+        //if buffer is not empty and not full
         if (this.tail.getNextElementV2() != this.head) {
             this.tail.setValueV2(value);
             this.setTailV2(this.tail.getNextElementV2());
-        } else if (this.tail.getNextElementV2() == this.head) {
+        } else if (this.tail.getNextElementV2() == this.head) { //if buffer is full
             this.tail.setValueV2(value);
             this.setTailV2(this.getHeadV2());
-        } else {
+        } else { //override elements if added after buffer is full
             this.head.setValueV2(value);
             this.setHeadV2(this.getHeadV2().getNextElementV2());
             this.setTailV2(this.getHeadV2());
@@ -77,6 +82,7 @@ public class RingBufferV2 {
         this.isEmpty = b;
     }
 
+    //sub method for setting the first value of the buffer
     private void addValueFirst(int value) {
         this.head.setValueV2(value);
         this.tail = this.head.getNextElementV2();
@@ -90,6 +96,7 @@ public class RingBufferV2 {
         return this.head.getValueV2();
     }
 
+    //unsure tbh
     public int removeV2(){
         if(this.isEmpty){
             return -1;
