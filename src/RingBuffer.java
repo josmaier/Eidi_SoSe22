@@ -6,7 +6,6 @@ import java.lang.NegativeArraySizeException;
  * Tail advanced nicht richtig,
  * value put passt
  * Aufpassen wegen out of bounds bei kleinen buffern
- * Konstruktor schöner macher
  * peek und remove testen
  * print funzt nicht
  */
@@ -22,37 +21,46 @@ public class RingBuffer {
     public RingBuffer(int capacity){
         if(capacity < 0) throw exception;
         
-        Element[] elements = new Element[capacity];
-        for(int i = 0; i < elements.length-1; i++){
+        
+        this.elements = initialiseElements(capacity);
+        this.head = this.elements[0];
+        this.tail = this.elements[0];
+    
+    }
+
+    public void setHead(Element e){ 
+        this.head = e;
+    }
+    
+    /*
+     * Initialising Elemtents out of constructor for easier readability 
+     * of said constructor
+     */
+    public Element[] initialiseElements(int capacity){
+        Element[] elementsTemp = new Element[capacity];
+        for(int i = 0; i < elementsTemp.length-1; i++){
             if(i == 0){
-                elements[i] = new Element();
-                elements[i].setNextElement(elements[i]);
-                elements[i].setPreviousElement(elements[i]);
+                elementsTemp[i] = new Element();
+                elementsTemp[i].setNextElement(elementsTemp[i]);
+                elementsTemp[i].setPreviousElement(elementsTemp[i]);
             } else {
-                elements[i] = new Element();
-                elements[i].setPreviousElement(elements[i-1]);
-                if(i == elements.length-1){
-                    elements[i].setNextElement(elements[0]);
+                elementsTemp[i] = new Element();
+                elementsTemp[i].setPreviousElement(elementsTemp[i-1]);
+                if(i == elementsTemp.length-1){
+                    elementsTemp[i].setNextElement(elementsTemp[0]);
                 } else {
-                    elements[i-1].setNextElement(elements[i]);
+                    elementsTemp[i-1].setNextElement(elementsTemp[i]);
                 }
 
                 
             }
             
         } 
-        elements[elements.length-1] = new Element();
-        elements[elements.length-1].setPreviousElement(elements[elements.length-2]);
-        elements[elements.length-1].setNextElement(elements[0]);
-        elements[elements.length-2].setNextElement(elements[elements.length-1]);
-        this.head = elements[0];
-        this.tail = elements[0];
-        this.elements = elements;
-    
-    }
-
-    public void setHead(Element e){
-        this.head = e;
+        elementsTemp[elementsTemp.length-1] = new Element();
+        elementsTemp[elementsTemp.length-1].setPreviousElement(elementsTemp[elementsTemp.length-2]);
+        elementsTemp[elementsTemp.length-1].setNextElement(elementsTemp[0]);
+        elementsTemp[elementsTemp.length-2].setNextElement(elementsTemp[elementsTemp.length-1]);
+        return elementsTemp;
     }
 
     public Element getHead(){
@@ -82,7 +90,7 @@ public class RingBuffer {
     }
 
     public void put(int value){
-        if(this.getTail() != this.getHead()){
+        if(this.getTail() == this.getHead()){
             this.getTail().setValue(value);
             this.getTail().setHasValue(true);
             this.setTail(this.getTail().getNextElement());
@@ -93,7 +101,6 @@ public class RingBuffer {
             this.getTail().setValue(value);
             this.getTail().setHasValue(true);
             this.setTail(this.getTail().getNextElement());
-            this.setHead(this.getTail().getNextElement());
         }
     }
 
