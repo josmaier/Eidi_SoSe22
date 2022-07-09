@@ -32,6 +32,8 @@ public class RingBufferV2 {
 
     }
 
+    //TODO has a issue which results in element positions in the buffer being changed
+    //Idk why trying to fix
     public void addValueV2(int value) {
         if (this.head == this.tail) {
             addValueFirst(value);
@@ -40,10 +42,13 @@ public class RingBufferV2 {
         if (this.tail.getNextElementV2() != this.head) {
             this.tail.setValueV2(value);
             this.setTailV2(this.tail.getNextElementV2());
+        } else if (this.tail.getNextElementV2() == this.head) {
+            this.tail.setValueV2(value);
+            this.setTailV2(this.getHeadV2());
         } else {
-            this.tail.getNextElementV2().setValueV2(value);
-            this.tail = this.head;
-            this.head = this.tail.getNextElementV2();
+            this.head.setValueV2(value);
+            this.setHeadV2(this.getHeadV2().getNextElementV2());
+            this.setTailV2(this.getHeadV2());
         }
 
     }
@@ -96,9 +101,8 @@ public class RingBufferV2 {
     }
 
     public void printBufferV2(){
-        ElementV2 e = this.head;
-        int i = 1;
         //TODO Implement
+        
     }
 
 }
