@@ -98,15 +98,7 @@ public class RingBufferV2 {
     public void printBufferV2(){
         ElementV2 e = this.head;
         int i = 1;
-        if(e.getHasValueV2()){
-            System.out.println("This is element " + i + " and it has a value of: " + e.getValueV2());
-            i++;
-        }
-        while(e.getNextElementV2().getHasValueV2()){
-            e = e.getNextElementV2();
-            System.out.println("This is element " + i + " and it has a value of: " + e.getValueV2());
-            i++;
-        }
+        //TODO Implement
     }
 
 }
