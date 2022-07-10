@@ -52,8 +52,8 @@ public class RingBufferV2 {
             this.setTailV2(this.getHeadV2());
         } else { //override elements if added after buffer is full
             this.head.setValueV2(value);
-            this.setHeadV2(this.getHeadV2().getNextElementV2());
-            this.setTailV2(this.getHeadV2());
+            this.head = this.head.getNextElementV2();
+            this.tail = this.head;
         }
 
     }
@@ -102,7 +102,7 @@ public class RingBufferV2 {
             return -1;
         }
         int value = this.head.getValueV2();
-        this.head = this.head.getNextElementV2();
+        this.tail = this.tail.getPreviousElementV2();
         this.setIsEmptyV2(this.head == this.tail);
         return value;
     }
