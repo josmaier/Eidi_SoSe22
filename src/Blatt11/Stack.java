@@ -7,11 +7,17 @@ public class Stack {
     private int size;
     private Element top;
 
+    //Create new stack
     public Stack() {
         this.size = 0;
         this.top = null;
     }
 
+    /**
+     * Add new Element to stack and connect it to the other elements
+     * if size > 1
+     * @param value     value of the added Element
+     */
     public void push(int value) {
         Element newElement = new Element();
         newElement.setValue(value);
@@ -25,6 +31,10 @@ public class Stack {
         this.size++;
     }
 
+    /**
+     * Remove top element from stack and retun its value
+     * @return      int Value of the top Element
+     */
     public int pop() {
         if (size == 0) throw new NoSuchElementException("The Stack is empty");
         if (size == 1) {
@@ -41,6 +51,9 @@ public class Stack {
         }
     }
 
+    /**
+     * Print Stack to the console
+     */
     public void printStack(){
         if(size == 0) throw new NoSuchElementException("The Stack is empty");
         Element e = this.top;
