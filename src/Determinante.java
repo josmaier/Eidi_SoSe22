@@ -48,7 +48,8 @@ public class Determinante {
         } else if (mat.length == 1) {
             return mat[0][0];
         } else if (i == mat.length) {
-            return sum;
+            //flip sign since function returns correct absolute value
+            return (sum * -1);
         } else {
             System.out.println("Input error");
             return -1;

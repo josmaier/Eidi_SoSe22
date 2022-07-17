@@ -60,7 +60,7 @@ public class ShakerSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {29, 13, 89, 41, 30, 71, 92, 39, 64, 37};
+        int[] array = {29, 13, 89, 41, 30, 71, 92, 39, 64, 37, 22};
         System.out.println("Unsorted Array: " + toString(array));
         int[] sortedArray = sort(array, 0, array.length-1);
         System.out.println("Sorted Array: " + toString(sortedArray));
