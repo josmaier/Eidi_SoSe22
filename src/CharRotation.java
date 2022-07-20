@@ -28,7 +28,6 @@ public class CharRotation {
             }
            
         }
-        
         System.out.println(arr);
         return arr;
     }

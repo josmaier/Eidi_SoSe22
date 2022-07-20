@@ -10,6 +10,7 @@ public class StringNode {
     private StringNode left;
     private StringNode right;
 
+    //SECTION GETTER SETTER 
     public void setRightChild(StringNode right) {
         this.right = right;
     }
@@ -25,7 +26,7 @@ public class StringNode {
     public StringNode getLeftChild() {
         return this.left;
     }
-
+    
     public void setItem(String item) {
         this.item = item;
     }
@@ -33,7 +34,7 @@ public class StringNode {
     public String getItem() {
         return this.item;
     }
-
+    //!SECTION
     public boolean isLeaf() {
         return left == null && right == null;
     }
