@@ -40,13 +40,13 @@ public class Stack {
         if (size == 1) {
             int value = top.getValue();
             this.top = null;
-            size--;
+            this.size--;
             return value;
         } else {
             int value = top.getValue();
             this.top = top.getPrevElement();
             this.top.setNextElement(null);
-            size--;
+            this.size--;
             return value;
         }
     }
@@ -64,5 +64,9 @@ public class Stack {
             i--;
         }
         System.out.println("Value of Element " + i + ": " + e.getValue());
+    }
+
+    public int size(){
+        return this.size;
     }
 }
